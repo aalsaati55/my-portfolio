@@ -16,6 +16,9 @@ const techIcons = [
   { name: 'Wireshark',  bg: '#001a33', img: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg' },
   { name: 'Kali Linux', bg: '#0d0d1a', img: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Kali-dragon-icon.svg' },
   { name: 'GitHub',     bg: '#111111', img: 'https://cdn.simpleicons.org/github/ffffff' },
+  { name: 'HTML',       bg: '#1a0e00', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  { name: 'CSS',        bg: '#001226', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+  { name: 'TypeScript', bg: '#001433', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
 ];
 
 const skillGroups = [
@@ -24,7 +27,7 @@ const skillGroups = [
     label: 'Security',
     color: 'from-red-500 to-orange-500',
     border: 'border-red-500/30',
-    skills: ['SIEM Development', 'Threat Intelligence (AbuseIPDB)', 'SOAR Automation', 'MITRE ATT&CK Mapping', 'IDS/IPS & Log Analysis', 'Kali Linux & Nmap & Metasploit', 'Wireshark', 'ML Anomaly Detection Models'],
+    skills: ['SIEM Development', 'Threat Intelligence (AbuseIPDB, VirusTotal)', 'MITRE ATT&CK Mapping', 'IDS/IPS & Log Analysis', 'Kali Linux & Nmap & Metasploit', 'Wireshark', 'ML Anomaly Detection Models', 'Wazuh', 'Suricata', 'Cowrie Honeypot'],
   },
   {
     icon: <Code2 size={20} />,
@@ -38,7 +41,7 @@ const skillGroups = [
     label: 'Frontend',
     color: 'from-cyan-500 to-blue-500',
     border: 'border-cyan-500/30',
-    skills: ['React', 'Next.js', 'HTML / CSS', 'GraphQL (client)', 'WebSockets'],
+    skills: ['React', 'Next.js', 'HTML / CSS', 'TypeScript', 'GraphQL (client)', 'WebSockets'],
   },
   {
     icon: <Network size={20} />,
@@ -53,6 +56,13 @@ const skillGroups = [
     color: 'from-yellow-500 to-orange-400',
     border: 'border-yellow-500/30',
     skills: ['REST APIs', 'GraphQL', 'MySQL / SQLite', 'scikit-learn', 'Pandas / NumPy', 'Matplotlib'],
+  },
+  {
+    icon: <Shield size={20} />,
+    label: 'Security Automation',
+    color: 'from-orange-500 to-red-600',
+    border: 'border-orange-500/30',
+    skills: ['SOAR Automation', 'Automated Email Alerts', 'Automated Vulnerability Reports', 'SOAR Playbook Execution', 'IP Auto-Blocking', 'Scheduled Threat Scans', 'Log Parsing & Alerting', 'Python Security Scripting'],
   },
   {
     icon: <Wrench size={20} />,
