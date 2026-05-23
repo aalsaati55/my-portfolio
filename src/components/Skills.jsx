@@ -19,6 +19,7 @@ const techIcons = [
   { name: 'HTML',       bg: '#1a0e00', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
   { name: 'CSS',        bg: '#001226', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
   { name: 'TypeScript', bg: '#001433', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+  { name: 'Tailwind',   bg: '#001a26', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
 ];
 
 const skillGroups = [
@@ -41,7 +42,7 @@ const skillGroups = [
     label: 'Frontend',
     color: 'from-cyan-500 to-blue-500',
     border: 'border-cyan-500/30',
-    skills: ['React', 'Next.js', 'HTML / CSS', 'TypeScript', 'GraphQL (client)', 'WebSockets'],
+    skills: ['React', 'Next.js', 'HTML / CSS', 'TypeScript', 'TailwindCSS', 'GraphQL (client)', 'WebSockets'],
   },
   {
     icon: <Network size={20} />,
