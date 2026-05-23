@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Shield } from 'lucide-react';
+// lucide-react this version has no Github/Linkedin icons — using Shield instead is fine
 
 const links = ['About', 'Skills', 'Projects', 'Education', 'Certificates', 'Contact'];
 
