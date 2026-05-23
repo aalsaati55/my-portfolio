@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Shield } from 'lucide-react';
 // lucide-react this version has no Github/Linkedin icons — using Shield instead is fine
 
-const links = ['About', 'Skills', 'Projects', 'Education', 'Certificates', 'Contact'];
+const links = ['Home', 'About', 'Skills', 'Projects', 'Education', 'Certificates', 'Contact'];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -15,7 +15,11 @@ export default function Navbar() {
   }, []);
 
   const scrollTo = (id) => {
-    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+    if (id === 'Home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+    }
     setOpen(false);
   };
 

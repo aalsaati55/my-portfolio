@@ -1,4 +1,5 @@
-import { ExternalLink, Shield, Globe, Network, Terminal, Server, Bug } from 'lucide-react';
+import { ExternalLink, Shield, Globe, Network, Terminal, Server, Bug, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 
 const GithubIcon = ({ size = 13 }) => (<svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>);
 
@@ -6,101 +7,152 @@ const projects = [
   {
     title: 'SentinelAI',
     subtitle: 'Full-Stack AI-Assisted SIEM Platform',
-    description: 'An enterprise-grade SIEM prototype that ingests live Linux logs from a virtual machine, runs a 14-rule detection engine mapped to MITRE ATT\u0026CK, correlates alerts into incidents using ML anomaly scoring (Isolation Forest), and delivers a real-time SOC dashboard with GeoIP enrichment, AbuseIPDB threat intelligence, automated SOAR remediation, MFA, role-based access control, and 137 unit tests.',
+    description: 'A full-stack AI-assisted SIEM platform with real-time log ingestion, a 14-rule MITRE ATT&CK detection engine, ML anomaly scoring, and an automated SOC dashboard with threat intelligence and SOAR remediation.',
     tags: ['Python', 'FastAPI', 'React', 'scikit-learn', 'WebSockets', 'SQLite', 'JWT', 'Docker'],
     github: 'https://github.com/aalsaati55/sentinelai',
     icon: <Shield size={22} />,
     color: 'from-red-600 to-orange-500',
     border: 'border-red-500/30',
     badge: 'Cybersecurity',
+    features: [
+      { title: 'Live Log Ingestion', desc: 'Ingests real Linux logs from a VM via SSH in real time for continuous monitoring.' },
+      { title: '14-Rule Detection Engine', desc: 'Custom rule engine mapped to MITRE ATT&CK covering brute force, privilege escalation, and more.' },
+      { title: 'ML Anomaly Scoring', desc: 'Isolation Forest model scores anomalies and correlates alerts into prioritized incidents.' },
+      { title: 'SOAR Auto-Remediation', desc: 'Automatically blocks malicious IPs and executes remediation playbooks on detection.' },
+      { title: 'Threat Intelligence', desc: 'AbuseIPDB + GeoIP enrichment on every alert for real-world context.' },
+      { title: 'SOC Dashboard', desc: 'Live React dashboard with WebSocket updates, charts, and incident management.' },
+    ],
   },
   {
     title: 'Social Network',
     subtitle: 'Full-Stack Social Platform',
-    description: 'A full-stack social network built with Go (Golang) and Next.js featuring authentication, privacy levels, follow requests, real-time chat via WebSockets/SSE, notifications, groups, and events.',
+    description: 'A full-stack social platform built with Go and Next.js, featuring auth, privacy controls, real-time WebSocket chat, notifications, groups, and events.',
     tags: ['Go', 'JavaScript', 'SQLite', 'Docker', 'WebSockets', 'Next.js'],
     github: 'https://github.com/mmahmood233/social-network.git',
     icon: <Globe size={22} />,
     color: 'from-blue-600 to-cyan-500',
     border: 'border-blue-500/30',
     badge: 'Full-Stack',
+    features: [
+      { title: 'Authentication & Sessions', desc: 'Secure login/register with session-based auth and cookie management.' },
+      { title: 'Privacy Controls', desc: 'Public, private, and semi-private profile modes with follow request system.' },
+      { title: 'Real-Time Chat', desc: 'WebSocket-powered direct messaging and group chat with live notifications.' },
+      { title: 'Groups & Events', desc: 'Create groups, invite members, and manage events with RSVP responses.' },
+    ],
   },
   {
     title: 'Netcat',
     subtitle: 'TCP Group Chat Application',
-    description: 'A Netcat-style group chat application in Go using TCP sockets. Features real-time messaging, nickname handling, message history synchronization, and multi-client support using goroutines and channels.',
+    description: 'A TCP-based group chat tool in Go supporting multiple concurrent clients, real-time messaging, nickname handling, and message history sync via goroutines.',
     tags: ['Go', 'TCP Sockets', 'Goroutines', 'Concurrency'],
     github: 'https://github.com/aalsaati55',
     icon: <Terminal size={22} />,
     color: 'from-green-600 to-teal-500',
     border: 'border-green-500/30',
     badge: 'Systems',
+    features: [
+      { title: 'TCP Multi-Client', desc: 'Handles multiple simultaneous connections using goroutines and channels.' },
+      { title: 'Message History Sync', desc: 'New clients receive full chat history upon joining.' },
+      { title: 'Nickname System', desc: 'Users can set and change nicknames visible to all participants.' },
+    ],
   },
   {
     title: 'Defense in Depth Network',
     subtitle: 'Enterprise Network Security Design',
-    description: 'Designed a secure multi-branch enterprise network using Defense in Depth principles. Implemented VLAN segmentation, firewalls, IDS/IPS, centralized AAA, DMZ isolation, and site-to-site IPsec VPNs.',
+    description: 'A multi-branch enterprise network design applying Defense in Depth — VLAN segmentation, IPsec VPNs, DMZ isolation, IDS/IPS, and centralized AAA authentication.',
     tags: ['Cisco Packet Tracer', 'VLANs', 'IPsec VPN', 'Firewalls', 'AAA', 'DMZ'],
     github: 'https://github.com/aalsaati55',
     icon: <Network size={22} />,
     color: 'from-purple-600 to-violet-500',
     border: 'border-purple-500/30',
     badge: 'Networking',
+    features: [
+      { title: 'VLAN Segmentation', desc: 'Isolated departments into separate VLANs to limit lateral movement.' },
+      { title: 'Site-to-Site IPsec VPN', desc: 'Encrypted tunnels between multiple branch offices.' },
+      { title: 'DMZ Architecture', desc: 'Public-facing servers isolated in a DMZ with strict ACL enforcement.' },
+      { title: 'Centralized AAA', desc: 'RADIUS-based authentication, authorization, and accounting for all devices.' },
+    ],
   },
   {
     title: 'Localhost Web Server',
     subtitle: 'HTTP/1.1 Server from Scratch in Rust',
-    description: 'Built a custom HTTP/1.1 web server in Rust from scratch using epoll. Implements core request handling, sessions, file uploads, and custom error pages with stress-tested stability and reliability.',
+    description: 'A custom HTTP/1.1 web server written in Rust from scratch, using epoll for non-blocking I/O, with session management, file uploads, and configurable error pages.',
     tags: ['Rust', 'HTTP/1.1', 'epoll', 'Systems Programming'],
     github: 'https://github.com/aalsaati55/localhost',
     icon: <Server size={22} />,
     color: 'from-orange-600 to-yellow-500',
     border: 'border-orange-500/30',
     badge: 'Systems',
+    features: [
+      { title: 'epoll Event Loop', desc: 'Non-blocking I/O using Linux epoll for high-concurrency request handling.' },
+      { title: 'HTTP/1.1 Compliant', desc: 'Full request parsing, status codes, headers, and keep-alive support.' },
+      { title: 'File Uploads & Sessions', desc: 'Multipart form parsing, file storage, and cookie-based session management.' },
+      { title: 'Custom Error Pages', desc: 'Configurable error responses for 404, 500, and other HTTP error codes.' },
+    ],
   },
   {
     title: 'GraphQL Profile Dashboard',
     subtitle: 'JWT-Auth User Stats Visualizer',
-    description: 'A profile web application using GraphQL to securely fetch authenticated user data. Implemented JWT-based authentication and created SVG-based graphs to visualize user progress and statistics.',
+    description: 'A profile dashboard using GraphQL and JWT authentication to fetch user data, with custom SVG-based charts to visualize XP, grades, and progress.',
     tags: ['JavaScript', 'GraphQL', 'SVG', 'JWT', 'Data Visualization'],
     github: 'https://github.com/aalsaati55/aalsaati55.github.io.git',
     icon: <Bug size={22} />,
     color: 'from-pink-600 to-rose-500',
     border: 'border-pink-500/30',
     badge: 'Full-Stack',
+    features: [
+      { title: 'JWT Authentication', desc: 'Secure login flow with JWT token storage and protected GraphQL queries.' },
+      { title: 'GraphQL Data Fetching', desc: 'Efficient querying of user stats and progress via GraphQL API.' },
+      { title: 'SVG Data Visualization', desc: 'Custom SVG charts built from scratch to display XP, grades, and progress.' },
+    ],
   },
   {
     title: 'Ransomware Lab',
     subtitle: 'Educational Malware Analysis Environment',
-    description: 'A controlled lab environment for studying ransomware behavior, encryption mechanisms, and detection strategies in an isolated Python-based setup for educational security research.',
+    description: 'A sandboxed Python environment for studying ransomware encryption behavior, detection strategies, and behavioral indicators for educational security research.',
     tags: ['Python', 'Cybersecurity', 'Malware Analysis'],
     github: 'https://github.com/aalsaati55/ransomware-lab',
     icon: <Shield size={22} />,
     color: 'from-red-700 to-red-500',
     border: 'border-red-600/30',
     badge: 'Cybersecurity',
+    features: [
+      { title: 'Encryption Simulation', desc: 'Simulates file encryption behavior used by real ransomware families.' },
+      { title: 'Isolated Environment', desc: 'Fully sandboxed setup to safely study malware without risk.' },
+      { title: 'Detection Strategies', desc: 'Documents behavioral indicators and detection approaches for each sample.' },
+    ],
   },
   {
     title: 'Pentest Kit',
     subtitle: 'Penetration Testing Toolkit',
-    description: 'A collection of penetration testing tools and scripts for vulnerability assessment, reconnaissance, and exploitation in controlled environments.',
+    description: 'A modular collection of Python scripts for penetration testing — covering reconnaissance, vulnerability scanning, and exploitation in controlled lab environments.',
     tags: ['Python', 'Pentesting', 'Security Automation'],
     github: 'https://github.com/aalsaati55/pentest-kit',
     icon: <Shield size={22} />,
     color: 'from-yellow-600 to-orange-500',
     border: 'border-yellow-500/30',
     badge: 'Cybersecurity',
+    features: [
+      { title: 'Reconnaissance Tools', desc: 'Automated port scanning, banner grabbing, and service enumeration.' },
+      { title: 'Vulnerability Assessment', desc: 'Scripts for common vulnerability checks across web and network targets.' },
+      { title: 'Security Automation', desc: 'Modular Python scripts for repeatable, scriptable pentest workflows.' },
+    ],
   },
   {
-    title: 'wget',
+    title: 'Wget',
     subtitle: 'File Downloader in Go',
-    description: 'A Go-based implementation of the wget command-line tool with support for file downloads, progress tracking, and mirroring capabilities.',
+    description: 'A Go implementation of the wget CLI tool supporting HTTP/HTTPS file downloads, real-time progress tracking, and recursive site mirroring.',
     tags: ['Go', 'CLI', 'HTTP', 'Systems'],
     github: 'https://github.com/aalsaati55/wget',
     icon: <Terminal size={22} />,
     color: 'from-teal-600 to-cyan-500',
     border: 'border-teal-500/30',
     badge: 'Systems',
+    features: [
+      { title: 'File Downloads', desc: 'Downloads files over HTTP/HTTPS with resume support and error handling.' },
+      { title: 'Progress Tracking', desc: 'Real-time progress bar with speed and ETA displayed in the terminal.' },
+      { title: 'Site Mirroring', desc: 'Recursively mirrors websites for offline access.' },
+    ],
   },
 ];
 
@@ -110,6 +162,100 @@ const badgeColors = {
   'Systems': 'bg-green-900/40 text-green-300 border-green-700/40',
   'Networking': 'bg-purple-900/40 text-purple-300 border-purple-700/40',
 };
+
+function ProjectCard({ p }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className={`relative flex flex-col rounded-2xl border ${p.border} bg-[#0f0f1e] overflow-hidden transition-all duration-300 hover:border-opacity-60 hover:shadow-lg hover:shadow-purple-900/20`}>
+
+      {/* Top gradient accent line */}
+      <div className={`h-[2px] w-full bg-gradient-to-r ${p.color}`} />
+
+      {/* Card body */}
+      <div className="flex flex-col flex-1 p-5">
+
+        {/* Header */}
+        <div className="flex items-start justify-between mb-4">
+          <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${p.color} flex items-center justify-center text-white shadow-lg shrink-0`}>
+            {p.icon}
+          </div>
+          <span className={`text-[10px] px-2.5 py-1 rounded-full border font-bold tracking-wide uppercase ${badgeColors[p.badge] || 'bg-gray-800 text-gray-300 border-gray-600'}`}>
+            {p.badge}
+          </span>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-white font-bold text-base leading-tight">{p.title}</h3>
+        <p className={`text-[11px] font-semibold mt-0.5 mb-3 bg-gradient-to-r ${p.color} bg-clip-text text-transparent`}>{p.subtitle}</p>
+
+        {/* Description */}
+        <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1">{p.description}</p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {p.tags.map(t => (
+            <span key={t} className="text-xs px-2 py-0.5 rounded-md bg-white/5 text-gray-400 font-mono border border-white/10">{t}</span>
+          ))}
+        </div>
+
+        {/* Footer: View Features + Code link */}
+        <div className="flex items-center justify-between pt-3 border-t border-white/8">
+          {p.features?.length > 0 ? (
+            <button
+              onClick={() => setOpen(o => !o)}
+              className="flex items-center gap-1 text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors"
+            >
+              <ChevronRight size={13} className={`transition-transform duration-200 ${open ? 'rotate-90' : ''}`} />
+              {open ? 'Hide Features' : 'View Features'}
+            </button>
+          ) : <span />}
+
+          <a href={p.github} target="_blank" rel="noreferrer"
+            className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white px-3 py-1.5 rounded-lg bg-white/8 hover:bg-white/15 transition-colors font-medium">
+            <GithubIcon size={12} /> Code
+          </a>
+        </div>
+      </div>
+
+      {/* Features overlay panel — slides in over the card */}
+      {open && (
+        <div className="absolute inset-0 bg-[#0d0d1e]/97 backdrop-blur-sm flex flex-col p-5 overflow-y-auto z-10">
+          {/* Panel header */}
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h4 className="text-white font-bold text-sm">{p.title}</h4>
+              <p className={`text-[11px] font-semibold bg-gradient-to-r ${p.color} bg-clip-text text-transparent`}>Key Features</p>
+            </div>
+            <button onClick={() => setOpen(false)}
+              className="text-gray-500 hover:text-white text-lg leading-none transition-colors w-7 h-7 flex items-center justify-center rounded-lg hover:bg-white/10">
+              ✕
+            </button>
+          </div>
+
+          {/* Features grid */}
+          <div className="grid grid-cols-2 gap-2 flex-1">
+            {p.features.map(f => (
+              <div key={f.title} className={`p-3 rounded-xl bg-white/4 border border-white/8 hover:border-opacity-40 transition-colors`}>
+                <p className="text-purple-400 text-xs font-bold mb-1.5 flex items-center gap-1">
+                  <span className="opacity-60">&lt;/&gt;</span> {f.title}
+                </p>
+                <p className="text-gray-400 text-xs leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom link */}
+          <div className="mt-4 pt-3 border-t border-white/8">
+            <a href={p.github} target="_blank" rel="noreferrer"
+              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white w-fit px-3 py-1.5 rounded-lg bg-white/8 hover:bg-white/15 transition-colors font-medium">
+              <GithubIcon size={12} /> View on GitHub
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Projects() {
   return (
@@ -122,48 +268,8 @@ export default function Projects() {
           <p className="text-gray-500 mt-4 max-w-xl mx-auto">A selection of projects spanning cybersecurity, systems programming, and full-stack development.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p) => (
-            <div key={p.title} className={`card-hover group flex flex-col p-6 rounded-2xl bg-white/5 border ${p.border} hover:bg-white/8 transition-all duration-300`}>
-              {/* Header */}
-              <div className="flex items-start justify-between mb-4">
-                <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${p.color} flex items-center justify-center text-white shadow-md`}>
-                  {p.icon}
-                </div>
-                <span className={`text-xs px-2.5 py-1 rounded-full border font-medium ${badgeColors[p.badge] || 'bg-gray-800 text-gray-300 border-gray-600'}`}>
-                  {p.badge}
-                </span>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-white font-bold text-lg leading-tight">{p.title}</h3>
-              <p className={`text-xs font-semibold mt-0.5 mb-3 bg-gradient-to-r ${p.color} bg-clip-text text-transparent`}>{p.subtitle}</p>
-
-              {/* Description */}
-              <p className="text-gray-400 text-sm leading-relaxed flex-1 mb-4">{p.description}</p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-5">
-                {p.tags.map(t => (
-                  <span key={t} className="text-xs px-2 py-0.5 rounded-md bg-white/10 text-gray-300 font-mono">{t}</span>
-                ))}
-              </div>
-
-              {/* Links */}
-              <div className="flex gap-3 mt-auto">
-                <a href={p.github} target="_blank" rel="noreferrer"
-                  className="flex items-center gap-1.5 text-xs text-gray-300 hover:text-white px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-colors font-medium">
-                  <GithubIcon size={13} /> Code
-                </a>
-                {p.live && (
-                  <a href={p.live} target="_blank" rel="noreferrer"
-                    className="flex items-center gap-1.5 text-xs text-gray-300 hover:text-white px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-colors font-medium">
-                    <ExternalLink size={13} /> Live
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ gridAutoRows: '1fr' }}>
+          {projects.map((p) => <ProjectCard key={p.title} p={p} />)}
         </div>
 
         <div className="text-center mt-10">
