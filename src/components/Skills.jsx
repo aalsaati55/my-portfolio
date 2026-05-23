@@ -31,7 +31,6 @@ const skillGroups = [
     label: 'Programming',
     color: 'from-purple-500 to-violet-600',
     border: 'border-purple-500/30',
-    skills: ['JavaScript', 'Python', 'Golang', 'Rust', 'Java'],
   },
   {
     icon: <Globe size={20} />,
