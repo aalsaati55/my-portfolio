@@ -39,10 +39,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a href="mailto:majeedghassan45@gmail.com" className="hidden md:block px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-sm font-semibold hover:opacity-90 transition-opacity">
-          Hire Me
-        </a>
-
         <button className="md:hidden text-gray-300 hover:text-white" onClick={() => setOpen(!open)}>
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -55,9 +51,6 @@ export default function Navbar() {
               {l}
             </button>
           ))}
-          <a href="mailto:majeedghassan45@gmail.com" className="mt-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-sm font-semibold text-center">
-            Hire Me
-          </a>
         </div>
       )}
     </nav>

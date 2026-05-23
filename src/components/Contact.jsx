@@ -50,15 +50,29 @@ const contactLinks = [
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
-    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`);
-    window.location.href = `mailto:majeedghassan45@gmail.com?subject=${subject}&body=${body}`;
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    setStatus('sending');
+    try {
+      const res = await fetch('https://formspree.io/f/xwvzqlrn', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
+      });
+      if (res.ok) {
+        setStatus('success');
+        setForm({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 4000);
+      }
+    } catch {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+    }
   };
 
   return (
@@ -134,12 +148,23 @@ export default function Contact() {
                   placeholder="Hello AbdulMajeed, I'd like to..."
                 />
               </div>
+              {status === 'success' && (
+                <div className="p-4 rounded-xl bg-green-900/30 border border-green-500/40 text-green-300 text-sm font-medium text-center">
+                  ✅ Message sent! I&apos;ll get back to you soon.
+                </div>
+              )}
+              {status === 'error' && (
+                <div className="p-4 rounded-xl bg-red-900/30 border border-red-500/40 text-red-300 text-sm font-medium text-center">
+                  ❌ Something went wrong. Please try emailing me directly.
+                </div>
+              )}
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-semibold hover:opacity-90 transition-all hover:scale-[1.02] shadow-lg shadow-purple-900/40"
+                disabled={status === 'sending'}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-semibold hover:opacity-90 transition-all hover:scale-[1.02] shadow-lg shadow-purple-900/40 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
               >
                 <Send size={16} />
-                {sent ? 'Opening email client...' : 'Send Message'}
+                {status === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
