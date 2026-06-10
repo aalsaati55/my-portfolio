@@ -5,6 +5,25 @@ const GithubIcon = ({ size = 13 }) => (<svg width={size} height={size} viewBox="
 
 const projects = [
   {
+    title: 'VulnSight',
+    subtitle: 'Vulnerability Report Automation Platform',
+    description: 'An internal security platform built for a bank to automate Qualys vulnerability report processing — ingesting CSV/Excel scan exports, classifying vulnerabilities via NLP, tracking SLA compliance, and generating branded PDF, Excel, and PowerPoint executive reports with role-based access control.',
+    tags: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'NLP', 'RBAC'],
+    github: 'https://github.com/aalsaati55',
+    icon: <Shield size={22} />,
+    color: 'from-violet-600 to-purple-500',
+    border: 'border-violet-500/30',
+    badge: 'Cybersecurity',
+    features: [
+      { title: 'Qualys Report Ingestion', desc: 'Parses CSV/Excel exports from Qualys vulnerability scans automatically.' },
+      { title: 'NLP Auto-Classification', desc: 'Classifies each vulnerability by required IT action using natural language processing.' },
+      { title: 'SLA Compliance Tracking', desc: 'Monitors remediation deadlines and surfaces aging trends for each vulnerability.' },
+      { title: 'Executive Report Generation', desc: 'Generates branded PDF, Excel, and PowerPoint reports for management.' },
+      { title: 'Role-Based Access Control', desc: 'Granular RBAC ensures each team only sees their relevant vulnerabilities.' },
+      { title: 'Bank Deployment', desc: 'Built and deployed as an internal tool for a real banking environment.' },
+    ],
+  },
+  {
     title: 'SentinelAI',
     subtitle: 'Full-Stack AI-Assisted SIEM Platform',
     description: 'A full-stack AI-assisted SIEM platform with real-time log ingestion, a 14-rule MITRE ATT&CK detection engine, ML anomaly scoring, and an automated SOC dashboard with threat intelligence and SOAR remediation.',
