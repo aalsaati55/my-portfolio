@@ -93,6 +93,14 @@ export default function Hero() {
           >
             Contact Me
           </a>
+          <a
+            href="/my-portfolio/AbdulMajeed_CV.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="px-8 py-3 rounded-xl border border-cyan-500/40 text-cyan-300 font-semibold hover:bg-cyan-900/30 transition-all duration-200 hover:scale-105"
+          >
+            View CV
+          </a>
         </div>
 
         {/* Social links */}

@@ -20,13 +20,22 @@ Personal portfolio website for **AbdulMajeed Ghassan AlSaati** — Cybersecurity
 
 ## Sections
 
-- **Hero** — Name, animated typing role, social links
+- **Hero** — Name, animated typing role, View My Work / Contact Me / View CV buttons, social links
 - **About** — Background, nationality, languages
-- **Skills** — Interactive tech icon grid + categorized skill cards
-- **Projects** — SentinelAI, Social Network, Netcat, Defense in Depth, GraphQL Dashboard, Localhost Web Server, wget
+- **Skills** — Interactive tech icon grid (18 icons) + 7 categorized skill cards including Security Automation
+- **Projects** — VulnSight, SentinelAI, Social Network, Netcat, Defense in Depth, Localhost Web Server, GraphQL Dashboard, Ransomware Lab, Pentest Kit, Wget — each with expandable feature overlay
 - **Education** — Bahrain Polytechnic, Reboot01, Al Rawabi
 - **Certificates** — STRELKA, IELTS, BH National CTF
 - **Contact** — Formspree-powered contact form
+
+---
+
+## Project Highlights
+
+- **VulnSight** — Bank vulnerability report automation platform with NLP classification, SLA tracking, and executive report generation (PDF/Excel/PowerPoint)
+- **SentinelAI** — Enterprise SIEM with MITRE ATT&CK detection engine, ML anomaly scoring, SOAR automation, and real-time SOC dashboard
+- **Social Network** — Full-stack Go + Next.js platform with real-time WebSocket chat, groups, and events
+- **Localhost Web Server** — HTTP/1.1 server written from scratch in Rust using epoll
 
 ---
 

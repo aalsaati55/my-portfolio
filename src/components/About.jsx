@@ -3,7 +3,7 @@ import { MapPin, Calendar, GraduationCap, Globe } from 'lucide-react';
 const facts = [
   { icon: <MapPin size={16} />, label: 'Location', value: 'Bahrain' },
   { icon: <Calendar size={16} />, label: 'Date of Birth', value: '23 October 2003' },
-  { icon: <GraduationCap size={16} />, label: 'Degree', value: 'Bachelor in ICT (Cyber Security)' },
+  { icon: <GraduationCap size={16} />, label: 'Degree', value: 'BSc ICT (Cyber Security) — Bahrain Polytechnic' },
   { icon: <Globe size={16} />, label: 'Languages', value: 'Arabic (Native), English (Fluent)' },
 ];
 
@@ -46,7 +46,7 @@ export default function About() {
           {/* Right: Bio text */}
           <div className="space-y-6">
             <p className="text-gray-300 text-lg leading-relaxed">
-              I&apos;m a <span className="text-purple-300 font-semibold">Cybersecurity & Full-Stack Developer</span> currently pursuing a Bachelor&apos;s degree in ICT at Bahrain Polytechnic, while also enrolled in a Full-Stack Developer coding program at <span className="text-cyan-300 font-semibold">Reboot01 Coding Institute</span>.
+              I&apos;m a <span className="text-purple-300 font-semibold">Cybersecurity & Full-Stack Developer</span> who has completed a Bachelor&apos;s degree in ICT (Cyber Security) at Bahrain Polytechnic and a Full-Stack Developer program at <span className="text-cyan-300 font-semibold">Reboot01 Coding Institute</span>.
             </p>
             <p className="text-gray-400 leading-relaxed">
               I&apos;ve developed a strong passion for cybersecurity and full-stack development, especially building systems that combine coding, security, and networking. I enjoy working across backend and full-stack development with a focus on how systems behave under the hood — authentication, automation, real-time communication, APIs, and low-level system behavior.
@@ -60,7 +60,7 @@ export default function About() {
               {[
                 { num: '10+', label: 'Projects' },
                 { num: '3+', label: 'Certs' },
-                { num: '2+', label: 'Years Coding' },
+                { num: '3+', label: 'Years Coding' },
               ].map(({ num, label }) => (
                 <div key={label} className="text-center p-4 rounded-xl bg-gradient-to-b from-purple-900/30 to-transparent border border-purple-700/30">
                   <div className="text-3xl font-black bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">{num}</div>
