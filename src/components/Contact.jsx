@@ -76,7 +76,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#0a0a14]">
+    <section id="contact" className="py-28 section-fade" style={{ background: '#070710' }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-purple-400 text-sm font-mono font-semibold tracking-widest uppercase">Get In Touch</span>

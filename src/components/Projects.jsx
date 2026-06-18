@@ -185,8 +185,15 @@ const badgeColors = {
 function ProjectCard({ p }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className={`relative flex flex-col rounded-2xl border ${p.border} bg-[#0f0f1e] overflow-hidden transition-all duration-300 hover:border-opacity-60 hover:shadow-lg hover:shadow-purple-900/20`}>
-
+    <div className={`relative flex flex-col rounded-2xl overflow-hidden transition-all duration-500 card-shimmer group`}
+      style={{
+        background: 'linear-gradient(145deg, rgba(15,12,30,0.9), rgba(8,8,20,0.95))',
+        border: `1px solid rgba(255,255,255,0.06)`,
+        boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
+      }}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 40px rgba(139,92,246,0.2), 0 0 0 1px rgba(139,92,246,0.2)'; }}
+      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.4)'; }}
+    >
       {/* Top gradient accent line */}
       <div className={`h-[2px] w-full bg-gradient-to-r ${p.color}`} />
 
@@ -195,16 +202,17 @@ function ProjectCard({ p }) {
 
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
-          <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${p.color} flex items-center justify-center text-white shadow-lg shrink-0`}>
+          <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${p.color} flex items-center justify-center text-white shrink-0`}
+            style={{ boxShadow: '0 4px 16px rgba(139,92,246,0.3)' }}>
             {p.icon}
           </div>
-          <span className={`text-[10px] px-2.5 py-1 rounded-full border font-bold tracking-wide uppercase ${badgeColors[p.badge] || 'bg-gray-800 text-gray-300 border-gray-600'}`}>
+          <span className={`text-[10px] px-2.5 py-1 rounded-full border font-bold tracking-widest uppercase ${badgeColors[p.badge] || 'bg-gray-800 text-gray-300 border-gray-600'}`}>
             {p.badge}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="text-white font-bold text-base leading-tight">{p.title}</h3>
+        <h3 className="text-white font-bold text-base leading-tight tracking-tight">{p.title}</h3>
         <p className={`text-[11px] font-semibold mt-0.5 mb-3 bg-gradient-to-r ${p.color} bg-clip-text text-transparent`}>{p.subtitle}</p>
 
         {/* Description */}
@@ -213,60 +221,62 @@ function ProjectCard({ p }) {
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {p.tags.map(t => (
-            <span key={t} className="text-xs px-2 py-0.5 rounded-md bg-white/5 text-gray-400 font-mono border border-white/10">{t}</span>
+            <span key={t} className="text-[11px] px-2 py-0.5 rounded-md font-mono text-gray-400"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              {t}
+            </span>
           ))}
         </div>
 
-        {/* Footer: View Features + Code link */}
-        <div className="flex items-center justify-between pt-3 border-t border-white/8">
+        {/* Footer */}
+        <div className="flex items-center justify-between pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
           {p.features?.length > 0 ? (
             <button
               onClick={() => setOpen(o => !o)}
-              className="flex items-center gap-1 text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors"
+              className="flex items-center gap-1 text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors group/btn"
             >
-              <ChevronRight size={13} className={`transition-transform duration-200 ${open ? 'rotate-90' : ''}`} />
+              <ChevronRight size={13} className={`transition-transform duration-200 ${open ? 'rotate-90' : 'group-hover/btn:translate-x-0.5'}`} />
               {open ? 'Hide Features' : 'View Features'}
             </button>
           ) : <span />}
 
           <a href={p.github} target="_blank" rel="noreferrer"
-            className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white px-3 py-1.5 rounded-lg bg-white/8 hover:bg-white/15 transition-colors font-medium">
+            className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-white px-3 py-1.5 rounded-lg transition-all duration-200 font-medium hover:bg-white/8">
             <GithubIcon size={12} /> Code
           </a>
         </div>
       </div>
 
-      {/* Features overlay panel — slides in over the card */}
+      {/* Features overlay */}
       {open && (
-        <div className="absolute inset-0 bg-[#0d0d1e]/97 backdrop-blur-sm flex flex-col p-5 overflow-y-auto z-10">
-          {/* Panel header */}
+        <div className="absolute inset-0 flex flex-col p-5 overflow-y-auto z-10"
+          style={{ background: 'rgba(8,6,22,0.97)', backdropFilter: 'blur(16px)' }}>
           <div className="flex items-center justify-between mb-4">
             <div>
               <h4 className="text-white font-bold text-sm">{p.title}</h4>
               <p className={`text-[11px] font-semibold bg-gradient-to-r ${p.color} bg-clip-text text-transparent`}>Key Features</p>
             </div>
             <button onClick={() => setOpen(false)}
-              className="text-gray-500 hover:text-white text-lg leading-none transition-colors w-7 h-7 flex items-center justify-center rounded-lg hover:bg-white/10">
+              className="text-gray-500 hover:text-white w-7 h-7 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors text-base">
               ✕
             </button>
           </div>
 
-          {/* Features grid */}
           <div className="grid grid-cols-2 gap-2 flex-1">
             {p.features.map(f => (
-              <div key={f.title} className={`p-3 rounded-xl bg-white/4 border border-white/8 hover:border-opacity-40 transition-colors`}>
+              <div key={f.title} className="p-3 rounded-xl transition-colors"
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
                 <p className="text-purple-400 text-xs font-bold mb-1.5 flex items-center gap-1">
-                  <span className="opacity-60">&lt;/&gt;</span> {f.title}
+                  <span className="opacity-50 font-mono">&lt;/&gt;</span> {f.title}
                 </p>
                 <p className="text-gray-400 text-xs leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
 
-          {/* Bottom link */}
-          <div className="mt-4 pt-3 border-t border-white/8">
+          <div className="mt-4 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
             <a href={p.github} target="_blank" rel="noreferrer"
-              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white w-fit px-3 py-1.5 rounded-lg bg-white/8 hover:bg-white/15 transition-colors font-medium">
+              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white w-fit px-3 py-1.5 rounded-lg hover:bg-white/8 transition-colors font-medium">
               <GithubIcon size={12} /> View on GitHub
             </a>
           </div>
@@ -278,13 +288,15 @@ function ProjectCard({ p }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-[#0d0d1a]">
+    <section id="projects" className="py-28 section-fade" style={{ background: '#080810' }}>
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-purple-400 text-sm font-mono font-semibold tracking-widest uppercase">What I've Built</span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mt-2">Projects</h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mx-auto mt-4" />
-          <p className="text-gray-500 mt-4 max-w-xl mx-auto">A selection of projects spanning cybersecurity, systems programming, and full-stack development.</p>
+        <div className="text-center mb-20">
+          <span className="inline-block text-purple-400 text-xs font-mono font-bold tracking-[0.3em] uppercase px-4 py-1.5 rounded-full border border-purple-500/20 bg-purple-500/5 mb-4">
+            What I've Built
+          </span>
+          <h2 className="text-5xl md:text-6xl font-black text-white mt-3 tracking-tight">Projects</h2>
+          <div className="w-20 h-1 rounded-full mx-auto mt-5" style={{ background: 'linear-gradient(90deg, #8b5cf6, #06b6d4)' }} />
+          <p className="text-gray-500 mt-5 max-w-xl mx-auto text-base">A selection of projects spanning cybersecurity, systems programming, and full-stack development.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ gridAutoRows: '1fr' }}>
