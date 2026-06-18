@@ -21,7 +21,7 @@ export default function Footer() {
 
           {/* Links */}
           <div className="flex items-center gap-5 text-sm text-gray-500">
-            {['About', 'Skills', 'Projects', 'Contact'].map(l => (
+            {['About', 'Skills', 'Experience', 'Projects', 'Contact'].map(l => (
               <button
                 key={l}
                 onClick={() => document.getElementById(l.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}

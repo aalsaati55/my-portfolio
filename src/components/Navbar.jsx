@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Shield } from 'lucide-react';
 
-const links = ['Home', 'About', 'Skills', 'Projects', 'Education', 'Certificates', 'Contact'];
+const links = ['Home', 'About', 'Skills', 'Experience', 'Projects', 'Education', 'Certificates', 'Contact'];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
