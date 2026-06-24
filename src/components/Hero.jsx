@@ -143,7 +143,7 @@ export default function Hero() {
             Contact Me
           </a>
           <a
-            href="/my-portfolio/AbdulMajeed_AlSaati_CV.pdf"
+            href="/my-portfolio/AbdulMajeed_AlSaati_CV_2026.pdf"
             target="_blank" rel="noreferrer"
             className="w-full sm:w-auto px-8 py-4 rounded-2xl border border-cyan-500/30 text-cyan-300 font-semibold hover:bg-cyan-950/40 hover:border-cyan-400/60 transition-all duration-300 hover:scale-105 text-sm"
           >
