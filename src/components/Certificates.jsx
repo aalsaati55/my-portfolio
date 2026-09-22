@@ -2,6 +2,24 @@ import { Award, Shield, BookOpen, Trophy } from 'lucide-react';
 
 const certs = [
   {
+    title: 'Bachelor’s Degree in ICT, Cyber Security',
+    issuer: 'Bahrain Polytechnic',
+    description: 'Comprehensive degree program covering cybersecurity fundamentals, network security, and information technology with a GPA of 3.64.',
+    icon: <BookOpen size={22} />,
+    color: 'from-purple-600 to-pink-500',
+    border: 'border-purple-500/30',
+    tag: 'Degree',
+  },
+  {
+    title: 'Full Stack Developer Diploma',
+    issuer: 'Reboot Coding Institute',
+    description: 'Intensive full-stack development program with cybersecurity specialization, covering modern web technologies and security best practices.',
+    icon: <Award size={22} />,
+    color: 'from-green-600 to-teal-500',
+    border: 'border-green-500/30',
+    tag: 'Diploma',
+  },
+  {
     title: 'Cisco Certified Network Associate Cybersecurity',
     issuer: 'Cisco',
     description: 'Industry-recognized certification covering cybersecurity operations, network security concepts, and threat response skills.',

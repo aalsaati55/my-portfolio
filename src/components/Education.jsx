@@ -4,7 +4,7 @@ const education = [
   {
     school: 'Reboot01 Coding Institute',
     degree: 'Full-Stack Developer Program',
-    period: '2023 – Present',
+    period: 'Completed',
     location: 'Bahrain',
     description: 'Intensive hands-on coding program focused on building complete web applications across frontend and backend. Working with modern languages and frameworks including Go, JavaScript, React, and Docker.',
     color: 'from-purple-600 to-cyan-500',
@@ -14,7 +14,7 @@ const education = [
   {
     school: 'Polytechnic Bahrain',
     degree: "Bachelor's Degree in ICT (Cyber Security)",
-    period: '2022 – Present',
+    period: 'Completed',
     location: 'Bahrain',
     description: 'Bachelor\'s degree program with a focus on cybersecurity fundamentals, network security, enterprise networking, and ICT systems. Gaining strong theoretical and practical knowledge in security principles.',
     color: 'from-cyan-600 to-blue-500',
