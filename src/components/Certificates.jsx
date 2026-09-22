@@ -2,6 +2,15 @@ import { Award, Shield, BookOpen, Trophy } from 'lucide-react';
 
 const certs = [
   {
+    title: 'Cisco Certified Network Associate Cybersecurity',
+    issuer: 'Cisco',
+    description: 'Industry-recognized certification covering cybersecurity operations, network security concepts, and threat response skills.',
+    icon: <Shield size={22} />,
+    color: 'from-blue-600 to-cyan-500',
+    border: 'border-blue-500/30',
+    tag: 'Certification',
+  },
+  {
     title: 'Level Up Your Static Analysis Skills with STRELKA',
     issuer: 'Security Training',
     description: 'Advanced static analysis techniques using STRELKA for malware and threat detection workflows.',
@@ -15,8 +24,8 @@ const certs = [
     issuer: 'British Council / IDP',
     description: 'International English Language Testing System certification demonstrating fluent English communication skills.',
     icon: <BookOpen size={22} />,
-    color: 'from-blue-600 to-cyan-500',
-    border: 'border-blue-500/30',
+    color: 'from-indigo-600 to-blue-500',
+    border: 'border-indigo-500/30',
     tag: 'Language',
   },
   {
