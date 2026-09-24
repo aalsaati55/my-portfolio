@@ -118,7 +118,7 @@ export default function Hero() {
 
         {/* Bio */}
         <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed animate-fadeInUp" style={{ animationDelay: '0.45s' }}>
-          BSc ICT (Cyber Security) graduate · Reboot01 Full-Stack alumnus ·
+          BSc ICT (Cyber Security) graduate · Cisco Certified Network Associate Cybersecurity · Reboot01 Full-Stack alumnus ·
           building systems that combine <span className="text-purple-300 font-semibold">security</span>,{' '}
           <span className="text-cyan-300 font-semibold">backend engineering</span>, and{' '}
           <span className="text-violet-300 font-semibold">real-world threat detection</span>.
@@ -144,10 +144,10 @@ export default function Hero() {
           </a>
           <a
             href="/my-portfolio/AbdulMajeed_AlSaati_CV_2026.pdf"
-            target="_blank" rel="noreferrer"
+            download
             className="w-full sm:w-auto px-8 py-4 rounded-2xl border border-cyan-500/30 text-cyan-300 font-semibold hover:bg-cyan-950/40 hover:border-cyan-400/60 transition-all duration-300 hover:scale-105 text-sm"
           >
-            View CV ↗
+            Download CV ↗
           </a>
         </div>
 

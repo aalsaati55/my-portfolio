@@ -3,6 +3,7 @@ import { Shield, Code2, Globe, Network, Database, Wrench } from 'lucide-react';
 const techIcons = [
   { name: 'Python',     bg: '#1c2b3a', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
   { name: 'JavaScript', bg: '#2a2800', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'Java',       bg: '#1a0e00', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
   { name: 'Go',         bg: '#00253a', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg' },
   { name: 'Rust',       bg: '#1a0e00', img: 'https://cdn.simpleicons.org/rust/CE412B' },
   { name: 'React',      bg: '#001a26', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
